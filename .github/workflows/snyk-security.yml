@@ -47,8 +47,8 @@ jobs:
 
         # Runs Snyk Code (SAST) analysis and uploads result into GitHub.
         # Use || true to not fail the pipeline
-      - name: Snyka Auth 73b0c334-26a3-4801-830c-97367c7cdb51
-        run: snyk auth
+      - name: Snyk Auth
+        run: snyk auth 73b0c334-26a3-4801-830c-97367c7cdb51
         
       - name: Snyk Code test
         run: snyk code test -d --org=b80b5363-8500-483c-bad0-444caacbe53e --sarif > snyk-code.sarif # || true
