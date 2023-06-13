@@ -16,3 +16,11 @@ jobs:
         uses: deep5050/flawfinder-action@master
         with:
           github_token: ${{ secrets.Personal_Token }}
+          
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: results.sarif
