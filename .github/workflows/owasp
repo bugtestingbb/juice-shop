@@ -1,4 +1,4 @@
-name: ZAP Full Scan
+name: ZAP Full
 
 jobs:
   zap_scan:
