@@ -15,7 +15,7 @@ jobs:
       - name: Run Trivy vulnerability scanner in repo mode
         uses: aquasecurity/trivy-action@master
         with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
+          #token: ${{ secrets.PERSONAL_TOKEN }}
           scan-type: 'fs'
           ignore-unfixed: true
           format: 'sarif'
