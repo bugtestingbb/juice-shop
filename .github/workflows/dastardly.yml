@@ -2,6 +2,10 @@ name: Dastardly Scan
 
 on: [push]
 
+permissions:
+    contents: read
+    checks: write
+
 jobs:
   scan-with-dastardly:
     name: Scan with Dastardly
