@@ -15,6 +15,7 @@ jobs:
       - name: Run Trivy vulnerability scanner in repo mode
         uses: aquasecurity/trivy-action@master
         with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
           scan-type: 'fs'
           ignore-unfixed: true
           format: 'sarif'
@@ -24,4 +25,5 @@ jobs:
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
         with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
           sarif_file: 'trivy-results.sarif'
