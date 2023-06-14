@@ -2,15 +2,15 @@ name: Dastardly Scan
 
 on: [push]
 
+permissions:
+  contents: read
+  checks: write 
+
 jobs:
   scan-with-dastardly:
     name: Scan with Dastardly
     runs-on: ubuntu-latest
-    
-    permissions:
-      contents: read
-      checks: write 
-    
+       
     steps:
       - name: Run Dastardly Scan
         uses: PortSwigger/dastardly-github-action@main
