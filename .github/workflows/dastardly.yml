@@ -18,7 +18,7 @@ jobs:
         if: always()
         uses: mikepenz/action-junit-report@v3
         with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
+          #token: ${{ secrets.PERSONAL_TOKEN }}
           check_name: 'Dastardly Scan Report'
           report_paths: '**/dastardly-report.xml'
           require_tests: true
