@@ -1,24 +1,23 @@
 name: Dastardly Scan
 
-on: [push]
+on: [ push ]
 
 jobs:
+
   scan-with-dastardly:
     name: Scan with Dastardly
     runs-on: ubuntu-latest
-       
+
     steps:
       - name: Run Dastardly Scan
         uses: PortSwigger/dastardly-github-action@main
         with:
-          target-url: 'http://testphp.vulnweb.com/'
+          target-url: 'https://vulnerable-site.azurewebsites.net/'
 
       - name: Publish Dastardly Scan Report
-      
         if: always()
         uses: mikepenz/action-junit-report@v3
         with:
-          #token: ${{ secrets.PERSONAL_TOKEN }}
           check_name: 'Dastardly Scan Report'
           report_paths: '**/dastardly-report.xml'
           require_tests: true
