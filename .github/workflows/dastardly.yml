@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Run Dastardly Scan
-        uses: PortSwigger/dastardly-github-action@main
+        uses: PortSwigger/dastardly-github-action@master
         with:
           target-url: 'https://vulnerable-site.azurewebsites.net/'
 
