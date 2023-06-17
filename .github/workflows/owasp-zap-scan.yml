@@ -20,3 +20,8 @@ jobs:
           target: 'https://juice-shop.herokuapp.com/'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
+      
+      - name: Publish
+        uses: actions/upload-artifact@v3
+        with:
+         path: report_html.html
