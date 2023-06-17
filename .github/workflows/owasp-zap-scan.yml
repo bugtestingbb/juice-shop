@@ -27,9 +27,9 @@ jobs:
       - name: Slack Notification
         uses: act10ns/slack@v1
         with: 
-          status: starting
+          status: ${{ job.status }}
           channel: '#integration'
-          message: Starting Deployment...
+          message: Owasp ZAP Scan Completed
           if: always()
           
 #       - name: Publish
