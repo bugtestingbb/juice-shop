@@ -24,4 +24,5 @@ jobs:
       - name: Publish
         uses: actions/upload-artifact@v3
         with:
+         name: Owasp Report
          path: report_html.html
