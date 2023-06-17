@@ -18,11 +18,16 @@ jobs:
         uses: PortSwigger/dastardly-github-action@main
         with:
           target-url: 'https://vulnerable-site.azurewebsites.net/'
-
-      - name: Publish Dastardly Scan Report
-        if: always()
-        uses: mikepenz/action-junit-report@v3
+          
+      - name: Publish
+        uses: actions/upload-artifact@v3
         with:
-          check_name: 'Dastardly Scan Report'
-          report_paths: '**/dastardly-report.xml'
-          require_tests: true
+         path: dastardly-report.xml
+
+#       - name: Publish Dastardly Scan Report
+#         if: always()
+#         uses: mikepenz/action-junit-report@v3
+#         with:
+#           check_name: 'Dastardly Scan Report'
+#           report_paths: '**/dastardly-report.xml'
+#           require_tests: true
