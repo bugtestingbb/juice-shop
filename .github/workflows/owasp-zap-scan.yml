@@ -5,6 +5,9 @@ on: [push]
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
+    env:
+       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+       
     name: Scan the web application
     steps:
       - name: Checkout
@@ -21,8 +24,16 @@ jobs:
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
       
-      - name: Publish
-        uses: actions/upload-artifact@v3
-        with:
-         name: Owasp Report
-         path: report_html.html
+      - name: Slack Notification
+        uses: act10ns/slack@v1
+        with: 
+          status: starting
+          channel: '#integration'
+          message: Starting Deployment...
+          if: always()
+          
+#       - name: Publish
+#         uses: actions/upload-artifact@v3
+#         with:
+#          name: Owasp Report
+#          path: report_html.html
