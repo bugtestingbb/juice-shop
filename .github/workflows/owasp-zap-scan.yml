@@ -5,8 +5,6 @@ on: [push]
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
-    env:
-       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
        
     name: Scan the web application
     steps:
@@ -27,9 +25,12 @@ jobs:
       - name: Slack Notification
         uses: act10ns/slack@v1
         with: 
-          #status: ${{ job.status }}
+          status: ${{ job.status }}
           channel: '#integration'
           message: Owasp ZAP Scan Completed
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
           
           
 #       - name: Publish
