@@ -15,6 +15,7 @@ jobs:
       - name: Bandit Scan
         uses: mdegis/bandit-action@v1
         with: 
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             path: "."
             level: high
             confidence: high
