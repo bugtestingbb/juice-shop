@@ -5,18 +5,19 @@ on:
     branches: [master]
 
 jobs:
-  test:
+  Bearer-Scan:
     runs-on: ubuntu-latest
 
     steps:
-
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
 
     - name: Installation
       run: |
        curl -sfL https://raw.githubusercontent.com/Bearer/bearer/main/contrib/install.sh | sh
-       pwd
-       find ./ -type f -executable | grep bearer
+
+    - name: Bearer Scan
+      run: |
        ./bin/bearer scan -f html --output ./shop.html .
 
     - name: Report Upload
