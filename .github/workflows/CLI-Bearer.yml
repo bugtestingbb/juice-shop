@@ -15,7 +15,9 @@ jobs:
     - name: Installation
       run: |
        curl -sfL https://raw.githubusercontent.com/Bearer/bearer/main/contrib/install.sh | sh
+       pwd
        ~/bin/bearer scan -f html --output ./shop.html .
+       pwd
 
     - name: Report Upload
       uses: actions/upload-artifact@v2
