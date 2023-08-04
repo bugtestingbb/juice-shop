@@ -15,17 +15,14 @@ jobs:
       - name: Build an image from Dockerfile
         run: |
           docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
-
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
-          format: 'html'
-          output: 'trivy-results.html'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
 
-      - name: Report Upload
-        uses: actions/upload-artifact@v2
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
         with:
-          name: Trivy Report
-          path: |
-            ./trivy-results.html
+          sarif_file: 'trivy-results.sarif'
