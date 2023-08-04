@@ -16,7 +16,7 @@ jobs:
       run: |
        curl -sfL https://raw.githubusercontent.com/Bearer/bearer/main/contrib/install.sh | sh
        pwd
-       grep -ri bearer ~/
+       find ~/ -type f -executable
        ~/bin/bearer scan -f html --output ./shop.html .
 
     - name: Report Upload
