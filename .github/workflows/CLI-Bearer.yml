@@ -15,9 +15,6 @@ jobs:
     - name: Installation
       run: |
        curl -sfL https://raw.githubusercontent.com/Bearer/bearer/main/contrib/install.sh | sh
-
-    - name: Run Scan
-      run: |
        ~/bin/bearer scan -f html --output ./shop.html .
 
     - name: Report Upload
