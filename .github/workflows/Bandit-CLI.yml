@@ -1,0 +1,28 @@
+name: "Bandit-scan"
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  Bandit-Scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Installation
+      run: |
+       pip install bandit
+
+    - name: Bandit Scan
+      run: |
+       bandit -f html -o ./vulpy.html .
+
+    - name: Report Upload
+      uses: actions/upload-artifact@v2
+      with:
+        name: Python_Sec_Report
+        path: |
+          ./vulpy.html
