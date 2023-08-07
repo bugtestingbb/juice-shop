@@ -18,7 +18,7 @@ jobs:
 
     - name: Bearer Scan
       run: |
-       ./bin/bearer scan -f html --output ./shop.html .
+       ./bin/bearer scan -f html --output ./shop.html . --quiet
 
     - name: Report Upload
       uses: actions/upload-artifact@v2
