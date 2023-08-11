@@ -20,7 +20,10 @@ jobs:
     
     - name: full scan
       run: |
-        semgrep --text --output report.txt --max-target-bytes 3000000 --config/semgrep-rules
+        semgrep --text --output report.txt --timeout-threshold 60 --max-target-bytes 3000000
+      env:
+        SEMGREP_RULES: p/default p/owasp-top-ten p/cwe-top-25
+        #Explore the various rule set here https://semgrep.dev/explore
         
     - name: save report as pipeline artifact
       uses: actions/upload-artifact@v3
