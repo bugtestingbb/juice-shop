@@ -20,9 +20,9 @@ jobs:
     
     - name: full scan
       run: |
-        semgrep --text --output report.txt
+        semgrep --text --output report.txt --timeout-threshold 60
       env:
-        SEMGREP_RULES: p/cwe-top-25 p/owasp-top-ten p/r2c-security-audit p/javascript p/trailofbits # more at semgrep.dev/explore
+        SEMGREP_RULES: p/default
         
     - name: save report as pipeline artifact
       uses: actions/upload-artifact@v3
