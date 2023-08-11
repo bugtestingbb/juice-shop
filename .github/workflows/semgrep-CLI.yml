@@ -20,7 +20,7 @@ jobs:
     
     - name: full scan
       run: |
-        semgrep --text --output report.txt --timeout-threshold 60 --max-target-bytes 3000000 --verbose
+        semgrep --text --output report.txt --max-target-bytes 3000000
       env:
         SEMGREP_RULES: p/default
         
