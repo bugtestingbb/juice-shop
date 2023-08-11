@@ -21,6 +21,8 @@ jobs:
     - name: full scan
       run: |
         semgrep --text --output report.txt
+      env:
+        SEMGREP_RULES: p/cwe-top-25 p/owasp-top-ten p/r2c-security-audit p/javascript p/trailofbits # more at semgrep.dev/explore
         
     - name: save report as pipeline artifact
       uses: actions/upload-artifact@v3
