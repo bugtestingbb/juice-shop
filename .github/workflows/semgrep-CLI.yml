@@ -20,7 +20,7 @@ jobs:
     
     - name: full scan
       run: |
-        semgrep ci --text --output report.txt --config="p/default"
+        semgrep --text --output report.txt --config=auto
         
     - name: save report as pipeline artifact
       uses: actions/upload-artifact@v3
